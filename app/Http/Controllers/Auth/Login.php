@@ -18,6 +18,19 @@ class Login extends Controller
 
         // Attempt to log in
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            // prevent admin to acess user dashboard
+            if (Auth::user()->role === 'admin') {
+                Auth::logout();
+
+                // Invalidate session
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                return back()
+                    ->withErrors(['email' => 'The provided credentials do not match our records.'])
+                    ->onlyInput('email');
+            }
+
             // Regenerate session for security
             $request->session()->regenerate();
 

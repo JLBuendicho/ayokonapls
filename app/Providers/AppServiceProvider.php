@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
