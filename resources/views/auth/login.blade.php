@@ -16,11 +16,10 @@
                         <label class="floating-label mb-6">
                             <input type="email"
                                    name="email"
-                                   placeholder="mail@example.com"
+                                   placeholder="Enter your email address"
                                    value="{{ old('email') }}"
                                    class="input input-bordered @error('email') input-error @enderror"
-                                   required
-                                   autofocus>
+                                   required>
                             <span>Email</span>
                         </label>
                         @error('email')
@@ -33,7 +32,7 @@
                         <label class="floating-label mb-6">
                             <input type="password"
                                    name="password"
-                                   placeholder="••••••••"
+                                   placeholder="Enter your password"
                                    class="input input-bordered @error('password') input-error @enderror"
                                    required>
                             <span>Password</span>
